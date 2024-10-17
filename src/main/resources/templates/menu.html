@@ -1,15 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Spa Menu</title>
-    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Spa Day - Client Profile</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h1>My Super Fancy Spa</h1>
-<div id = "clientProfile">
+<div id="clientProfile">
+    <h2>My profile</h2>
+    <p>Name: <span th:text="${name}"></span></p>
+    <p>Skin Type: <span th:text="${skintype}"></span></p>
+    <p>Preference: <span th:text="${manipedi}"></span></p>
 </div>
-<div id = "servicesMenu">
+
+<div id="servicesMenu">
+    <h2>Recommended Facial Treatments</h2>
+    <table>
+        <th:block th:each="facial : ${appropriateFacials}">
+            <tr>
+                <td th:text="${facial}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+    <div th:if="${manipedi == 'manicure' || manipedi == 'both'}">
+        <h3>Manicure</h3>
+        <p th:insert="~{fragments :: manicureDescription}"></p>
+    </div>
+    <div th:if="${manipedi == 'pedicure' || manipedi == 'both'}">
+        <h3>Pedicure</h3>
+        <p th:insert="~{fragments :: pedicureDescription}"></p>
+    </div>
 </div>
 </body>
 </html>

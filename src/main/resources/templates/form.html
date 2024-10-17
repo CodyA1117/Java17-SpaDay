@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spa Day - User Form</title>
+</head>
+<body>
+<h1>Welcome to the Spa Day</h1>
+<form action="#" th:action="@{/menu}" th:method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+    </div>
+    <div>
+        <label for="skintype">Skin Type:</label>
+        <select id="skintype" name="skintype">
+            <option value="oily">Oily</option>
+            <option value="dry">Dry</option>
+            <option value="combination">Combination</option>
+        </select>
+    </div>
+    <div>
+        <label for="manipedi">Manicure or Pedicure:</label>
+        <select id="manipedi" name="manipedi">
+            <option value="manicure">Manicure</option>
+            <option value="pedicure">Pedicure</option>
+            <option value="both">Both</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+</body>
+</html>
